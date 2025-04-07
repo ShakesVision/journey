@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon-Shakeeb-Journey.png" type="image/x-icon">
+    <title>My Life Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #F16767;
+            --secondary: #FF9B17;
+            --accent: #FCB454;
+            --highlight: #FFF085;
+        }
+
+        @layer utilities {
+            .animate-hover {
+                @apply transition-all duration-300 ease-in-out;
+            }
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #FFF08522 0%, #FCB45411 100%);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-[#fafafa]">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold" style="color: var(--primary);">My Journey</h1>
+            <div class="space-x-6">
+                <a href="#timeline" class="hover:text-[var(--secondary)] animate-hover">Timeline</a>
+                <a href="#achievements" class="hover:text-[var(--secondary)] animate-hover">Highlights</a>
+                <a href="#skills" class="hover:text-[var(--secondary)] animate-hover">Skills</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-32 pb-20 px-6">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <svg viewBox="0 0 1000 1000" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <path fill="url(#gradient)"
+                    d="M826.5 734Q800 868 666 841.5t-185-85Q400 700 327.5 614T207 430q-33-134 57.5-224t224-57.5Q522 176 614 248.5t212 185Q868 568 841 702t-14.5 32Z">
+                    <animate attributeName="d" dur="20s" repeatCount="indefinite"
+                        values="M826.5 734Q800 868 666 841.5t-185-85Q400 700 327.5 614T207 430q-33-134 57.5-224t224-57.5Q522 176 614 248.5t212 185Q868 568 841 702t-14.5 32Z;
+                                M800 700Q700 900 500 850T250 650Q200 500 300 400t200-100Q600 250 700 350t100 350Z;
+                                M826.5 734Q800 868 666 841.5t-185-85Q400 700 327.5 614T207 430q-33-134 57.5-224t224-57.5Q522 176 614 248.5t212 185Q868 568 841 702t-14.5 32Z"
+                        calcMode="spline" keySplines="0.25 0.1 0.25 1; 0.25 0.1 0.25 1">
+                    </animate>
+                </path>
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#F16767; stop-opacity:0.3" />
+                        <stop offset="100%" style="stop-color:#FF9B17; stop-opacity:0.2" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="container mx-auto text-center">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-5xl font-bold mb-6" style="color: var(--primary);" id="heroName"></h2>
+                <p class="text-xl text-gray-600 mb-8" id="heroLocation"></p>
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <p class="text-gray-600" id="heroQuote"></p>
+                    <div class="mt-6 flex justify-center space-x-4">
+                        <div class="text-center">
+                            <p class="text-2xl font-bold" style="color: var(--secondary);" id="experienceYears">0</p>
+                            <p class="text-sm">Years of Journey</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-center space-x-4" id="heroStats"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 bg-white px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center" style="color: var(--accent);">Life Timeline</h2>
+            <div class="relative max-w-2xl mx-auto" id="timelineContainer"></div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center" style="color: var(--primary);">Core Competencies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skillsContainer"></div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 bg-[var(--highlight)] px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center" style="color: var(--primary);">Pinnacle Moments</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="achievementsContainer"></div>
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section id="links" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center" style="color: var(--primary);">Connect & Explore</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="linksContainer"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--primary)] text-white py-12 px-6">
+        <div class="container mx-auto text-center space-y-2">
+            <p class="text-lg">"The beautiful thing about learning is that no one can take it away from you"</p>
+            <div class="flex justify-center space-x-4">
+                <span class="opacity-75">ज़िंदगी का सफर</span>
+                <span>•</span>
+                <span class="opacity-75">Journey since 2001</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Personal Data
+        const personalData = {
+            name: "Shakeeb Ahmed",
+            location: "Kamptee, Central India",
+            quote: "“Combining code with creativity to build meaningful experiences”",
+            startYear: 2001,
+            stats: {
+                students: "5000+",
+                projects: "200+",
+                articles: "150+"
+            },
+            hobbies: ["Reading", "Blogging", "Poetry", "Coding"],
+            expertise: {
+                technical: ["Web Development", "EdTech Solutions", "Curriculum Design"],
+                teaching: ["Computer Science", "Critical Thinking", "Career Counseling"],
+                creative: ["Urdu Poetry", "Technical Writing", "Public Speaking"],
+                quirky: ["Palmistry", "Telepathy", "Solving Rubik's cube"],
+                indoor: ["Chess", "Carrom",],
+                outdoor: ["Badminton", "Football", "Volleyball"],
+            }
+        };
+
+        // Timeline Data
+        const timelineData = [
+            {
+                year: 2001,
+                title: "Grade 1, Joined Primary School",
+                description: "Five year old me went to school for the first time",
+                comment: "Nagar Parishad Urdu Primary Boys School, Ismail Pura, Kamptee. It's still situated at the same place."
+            },
+            {
+                year: 2005,
+                title: "Grade 5, Entered Middle School",
+                description: "Feels like yesterday. We got introduced to 3 new languages: English, Hindi and Marathi.",
+                comment: "M.M. Rabbani High School & Jr. College Kamptee"
+            },
+            {
+                year: 2008,
+                title: "Grade 8, Entered High School",
+                description: "And this was beginning of a new era in Rabbani, it adapted Semi-English medium instead of fully Urdu medium.",
+                comment: "Section A was Semi-English, and other sections were Urdu. Semi-English boys were mandated to wear shoes and tucked-in shirts with belts."
+            },
+            {
+                year: 2011,
+                title: "Graduated High School",
+                description: "The board exams were over, and I got 88.79%.",
+                comment: "Immedietly after exams, we went to Aurangabad in Jamaa't."
+            },
+            {
+                year: 2013,
+                title: "Graduated Junior College",
+                description: "The days in M.M.Rabbani were over.",
+                comment: "Most people are preparing for Engineering colleges now, a few for Medical colleges."
+            },
+            {
+                year: 2013,
+                title: "JEE Exams in Amravati",
+                description: "Nobody was prepared, but all went to their alloted centers and gave exams.",
+                comment: "Left at midnight with one of my friends' family, returned the next day."
+            },
+            {
+                year: 2013,
+                title: "SEEE Exams in Nagpur",
+                description: "This was months apart, and any preparation we had was already lost.",
+                comment: "First time we came back home by ourselves from Nagpur."
+            },
+            {
+                year: 2013,
+                title: "Started B.E. at PIGCE, Nagpur.",
+                description: "Tied tie for the first time, hated it. Hate it.",
+                comment: "Very school like environment, strict and disciplined. Almost suffocating."
+            },
+            {
+                year: 2014,
+                title: "BE, Second Year",
+                description: "Now we're at our branch, and the actual computer science started",
+                comment: "Ranks dropped significantly for whole class in the 3rd Semester. Caught up in the 4th."
+            },
+            {
+                year: 2017,
+                title: "Graduated B.E. (Computer Science & Engineering) under RTM Nagpur University.",
+                description: "Got placed from campus for a non-technical role.",
+                comment: "Life looked kinda fuzzy. But I was happy to move to Pune and see what corporate life was like."
+            },
+            {
+                year: 2017,
+                title: "Joined Amazon, Pune as Customer Service Associate",
+                description: "Worked for 4 months.",
+                comment: "Great time and learning experience there. But the fields was not CS, so couldn't do much. I was looking forward to GATE exams now and go for masters.",
+            },
+            {
+                year: 2017,
+                title: "Joined Army Public School & Jr. College, Kamptee as Lecturer for Physics & Math",
+                description: "Worked for 6 months. Students loved my teaching, that's enough validation.",
+                comment: "Achieved record results. But GATE exams were near..."
+            },
+            {
+                year: 2018,
+                title: "Tuitions for Math with my GATE prep",
+                description: "Life came at peace.",
+                comment: "Wrote a lot of things in that era."
+            },
+            {
+                year: 2019,
+                title: "Started M.Tech at VIT, Pune",
+                description: "Again, with Computer Science & Engineering.",
+                comment: "Learnt a lot of things that were missing in my previous education. A lot of practical knowledge I gathered along with Mtech and started Freelancing too."
+            },
+            {
+                year: 2021,
+                title: "Finished M.Tech at VIT, Pune",
+                description: "Got a campus placement offer from Infosys.",
+                comment: "But they were delaying it for months, so I started interviewing and bagged 2 more offers. Joined one."
+            },
+            {
+                year: 2021,
+                title: "Joined Simplified Automation, Canada (Remote)",
+                description: "Angular frontend, C# backend.",
+                comment: "Crazy learning experience and work culture. Awesome team."
+            }
+        ];
+
+        // Achievements Data
+        const achievementsData = [
+            {
+                emoji: "📚",
+                title: "Lifelong Learner",
+                description: "2000+ books read across multiple disciplines"
+            },
+            {
+                emoji: "👨🏫",
+                title: "Master Educator",
+                description: "Mentored 5000+ students across India"
+            },
+            {
+                emoji: "💡",
+                title: "Innovation Award",
+                description: "EdTech solutions for rural education"
+            }
+        ];
+
+        const linksData = [
+            {
+                icon: '📚',
+                label: 'Blog',
+                url: '#',
+                description: 'My articles on technology and literature'
+            },
+            {
+                icon: '💻',
+                label: 'GitHub',
+                url: '#',
+                description: 'Open-source projects and code samples'
+            },
+            {
+                icon: '📖',
+                label: 'Poetry',
+                url: '#',
+                description: 'Collection of Urdu verses and thoughts'
+            },
+            {
+                icon: '👨🏫',
+                label: 'Courses',
+                url: '#',
+                description: 'Teaching materials and tutorials'
+            }
+        ];
+        // Initialize Page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hero Section
+            document.getElementById('heroName').textContent = personalData.name;
+            document.getElementById('heroLocation').textContent = personalData.location;
+            document.getElementById('heroQuote').textContent = personalData.quote;
+
+            // Experience Years
+            const currentYear = new Date().getFullYear();
+            document.getElementById('experienceYears').textContent = currentYear - personalData.startYear;
+
+            // Timeline
+            const timelineContainer = document.getElementById('timelineContainer');
+            timelineData.forEach(event => {
+                timelineContainer.innerHTML += `
+                    <div class="mb-12">
+                        <div class="flex items-center mb-4">
+                            <div class="w-4 h-4 rounded-full bg-[var(--primary)]"></div>
+                            <div class="flex-1 h-1 bg-[var(--highlight)]"></div>
+                            <span class="ml-4 text-gray-500">${event.year}</span>
+                        </div>
+                        <div class="ml-8">
+                            <h3 class="text-xl font-semibold mb-2">${event.title}</h3>
+                            <p class="text-gray-600">${event.description}</p>
+                            <p class="text-sm mt-2 italic text-[var(--secondary)]">"${event.comment}"</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Skills
+            const skillsContainer = document.getElementById('skillsContainer');
+            Object.entries(personalData.expertise).forEach(([category, skills]) => {
+                skillsContainer.innerHTML += `
+                    <div class="bg-white p-6 rounded-xl shadow-md animate-hover hover:shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4" style="color: var(--secondary);">${category.charAt(0).toUpperCase() + category.slice(1)}</h3>
+                        <ul class="space-y-2">
+                            ${skills.map(skill => `
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full bg-[var(--accent)] mr-2"></div>
+                                    ${skill}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+            });
+
+            // Achievements
+            const achievementsContainer = document.getElementById('achievementsContainer');
+            achievementsData.forEach(achievement => {
+                achievementsContainer.innerHTML += `
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-4xl mb-4" style="color: var(--secondary);">${achievement.emoji}</div>
+                        <h3 class="text-xl font-semibold mb-2">${achievement.title}</h3>
+                        <p class="text-gray-600">${achievement.description}</p>
+                    </div>
+                `;
+            });
+        });
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const linksContainer = document.getElementById('linksContainer');
+        linksData.forEach(link => {
+            linksContainer.innerHTML += `
+        <a href="${link.url}" class="group relative bg-[var(--highlight)] p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <div class="text-4xl mb-4">${link.icon}</div>
+            <h3 class="text-xl font-semibold mb-2">${link.label}</h3>
+            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-4 py-2 bg-white rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-sm text-gray-600">${link.description}</p>
+                <div class="absolute -bottom-1 left-1/2 w-3 h-3 bg-white transform -translate-x-1/2 rotate-45"></div>
+            </div>
+        </a>
+    `;
+        });
+    </script>
+</body>
+
+</html>
